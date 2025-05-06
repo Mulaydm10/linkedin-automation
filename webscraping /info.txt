@@ -1,0 +1,5 @@
+search all method in beautiful soup soup.find.all 
+we can also find specific text usiing 
+
+### select method css-selector ### 
+there diffrent methods to grab text , these above are two methods more methods are coming 

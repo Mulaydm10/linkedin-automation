@@ -1,0 +1,29 @@
+
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Easy Apply Bot",
+  "version": "1.0",
+  "description": "Auto-fill LinkedIn Easy Apply forms",
+  "permissions": ["storage", "tabs", "scripting", "downloads"],
+  "host_permissions": ["*://*.linkedin.com/*"],
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*"],
+      "js": ["content.js", "job-scraper.js", "save-jobs.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: https://*.licdn.com;"
+  },
+  "web_accessible_resources": [{
+    "resources": ["content.js", "job-scraper.js", "save-jobs.js"],
+    "matches": ["*://*.linkedin.com/*"]
+  }]
+}
